@@ -90,11 +90,10 @@ public class SellerDaoJDBC implements SellerDao {
                     "WHERE Id = ?");
 
             st.setInt(1, id);
-            st.executeUpdate();
+            int rows = st.executeUpdate();
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
-        }
-        finally {
+        } finally {
             DB.closeStatement(st);
         }
     }
